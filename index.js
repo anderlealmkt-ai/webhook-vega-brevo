@@ -15,9 +15,9 @@ app.post('/webhook-vega', async (req, res) => {
   
   const dados = req.body;
   
-  // 📌 CAMPOS CORRETOS DA VEGA
-  const emailCliente = dados.customer?.email;
-  const nomeCliente = dados.customer?.name;
+  // ✅ AGORA ACEITA OS DOIS FORMATOS
+  const emailCliente = dados.customer?.email || dados.email;
+  const nomeCliente = dados.customer?.name || dados.name;
   
   console.log('📧 Email:', emailCliente);
   console.log('👤 Nome:', nomeCliente);
